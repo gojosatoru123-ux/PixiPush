@@ -111,7 +111,7 @@ const Uploader = () => {
                   <Upload className="w-12 h-12 text-white" />
                 </div>
               </label>
-              {fileName ? `Selected: ${fileName}` : 'Choose a file'}
+              <p className='break-all'>{fileName ? `Selected: ${fileName}` : 'Choose a file'}</p>
               <div className="space-y-4">
                 <h3 className="text-3xl font-bold text-slate-900">Drop & Share</h3>
                 <p className="text-slate-600 text-lg">Currently files up to 5MB • Lightning fast • Secure</p>
@@ -134,11 +134,11 @@ const Uploader = () => {
                 </div>
               )}
               {blob && (
-                <div style={{ marginTop: '10px', border: '1px solid green', padding: '10px' }}>
+                <div style={{ marginTop: '10px', border: '1px solid green', padding: '2px' }}>
                   <QrCodeGenerator url={blob.url} size={128} level="H" />
 
-                  <div className="relative flex items-center bg-slate-50 border border-slate-200 rounded-lg shadow-sm overflow-hidden">
-                    <input
+                  <div className="relative flex flex-col sm:flex-row items-stretch bg-gray-50/80 backdrop-blur-sm border border-gray-200/50 rounded-lg shadow-inner overflow-hidden transition-all duration-300 group-hover:shadow-md">
+                  <input
                       type="text"
                       value={blob.url || ''} // Ensure value is a string, handle null/undefined
                       readOnly // Prevent user from typing in this display input
@@ -146,8 +146,8 @@ const Uploader = () => {
                     />
                     <div
                       onClick={handleCopy}
-                      className="flex-shrink-0 px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 transition-colors duration-200 flex items-center gap-1"
-                    >
+                      className="flex-shrink-0 px-4 py-3 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:ring-offset-2 transition-all duration-300 hover:shadow-inner flex items-center justify-center gap-2 min-w-0 active:scale-95"
+                      >
                       {copied ? (
                         <>
                           <Check className="h-4 w-4 text-green-600" /> Copied!
