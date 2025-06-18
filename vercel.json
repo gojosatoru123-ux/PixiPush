@@ -2,7 +2,7 @@
     "crons": [
       {
         "path": "/app/api/cron/delete-expired.js",
-        "schedule": "*/60 * * * *", 
+        "schedule": "0 * * * *", 
         "timeZone": "UTC"
       }
     ]
