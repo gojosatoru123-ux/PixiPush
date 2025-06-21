@@ -15,7 +15,7 @@ const ChatForm = ({ onSendMessage, isVisible }) => {
         <>
             <form
                 onSubmit={handleSubmit}
-                className={`w-full max-w-5xl flex flex-col items-center justify-center bg-white/80 backdrop-blur-lg fixed sm:relative bottom-7 sm:bottom-0 left-0 sm:p-4 sm:rounded-3xl border border-gray-200/50 shadow-xl transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`w-full max-w-5xl flex flex-col items-center justify-center bg-white/80 backdrop-blur-lg fixed sm:relative bottom-12 sm:bottom-0 left-0 sm:p-4 sm:rounded-3xl sm:border sm:border-gray-200/50 shadow-xl transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: '300ms' }}
             >
                 {/* Input group */}
