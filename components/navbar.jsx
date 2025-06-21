@@ -24,7 +24,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            <nav className="fixed bottom-0 left-0 right-0 z-20 p-2 bg-white border-t border-gray-200 shadow-sm">
+            <nav className="fixed md:hidden bottom-0 left-0 right-0 z-20 p-2 bg-white border-t border-gray-200 shadow-sm">
                 <div className="flex md:hidden items-center justify-around p-1">
                     <Link href="/" className={`flex flex-col items-center transition-colors ${pathname === '/' ? 'text-blue-600' : 'text-gray-500'}`}>
                         <Home className="w-6 h-6" />

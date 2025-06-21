@@ -60,11 +60,31 @@ export async function POST(request){
       },
     });
  
-    return NextResponse.json(jsonResponse);
+    const response = NextResponse.json(jsonResponse);
+    // *** IMPORTANT: Ensure this matches your React app's origin EXACTLY ***
+    response.headers.set('Access-Control-Allow-Origin', 'chrome-extension://gheciiohmdgfnoldlelkgncfiobjdjmk');
+    response.headers.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS'); // Ensure OPTIONS is allowed for the actual response too
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Include headers your client might send
+    response.headers.set('Access-Control-Allow-Credentials', 'true'); // Required if you're sending cookies/auth tokens
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { error: (error).message },
       { status: 400 }, // The webhook will retry 5 times waiting for a 200
     );
   }
+}
+export async function OPTIONS(request) {
+  console.log('OPTIONS request received for /api/file/upload');
+  const response = new NextResponse(null, { status: 204 }); // 204 No Content is standard for successful preflight
+
+  // *** IMPORTANT: Ensure this matches your React app's origin EXACTLY ***
+  response.headers.set('Access-Control-Allow-Origin', 'chrome-extension://gheciiohmdgfnoldlelkgncfiobjdjmk');
+  response.headers.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS'); // MUST include all methods you use, especially POST
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // MUST include all headers your client will send (e.g., Content-Type, Authorization)
+  response.headers.set('Access-Control-Allow-Credentials', 'true'); // Required if your client is sending cookies/auth tokens
+  response.headers.set('Access-Control-Max-Age', '86400'); // Cache preflight for 24 hours
+
+  return response;
 }
