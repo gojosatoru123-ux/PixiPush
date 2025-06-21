@@ -189,7 +189,7 @@ const ChatPage = () => {
                         Room-{room}
                     </span>
 
-                    <div className="sm:h-[400px] overflow-y-auto p-4 w-full max-w-5xl sm:bg-white/80 sm:backdrop-blur-lg sm:border sm:border-gray-200/50 sm:shadow-xl sm:rounded-3xl mb-20 sm:mb-0">
+                    <div className="sm:h-[400px] overflow-y-auto p-4 w-full max-w-5xl sm:bg-white/80 sm:backdrop-blur-lg sm:border sm:border-gray-200/50 sm:shadow-xl sm:rounded-3xl sm:mb-0">
                         <div className="h-full flex flex-col chat-scrollbar">
                             {/* Messages container */}
                             <div className="flex-1 space-y-3 sm:space-y-4 pr-2">
